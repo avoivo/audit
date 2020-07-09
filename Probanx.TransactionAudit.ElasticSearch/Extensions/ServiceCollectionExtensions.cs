@@ -5,10 +5,10 @@ namespace Microsoft.Extensions.DependencyInjection
 {
     public static class ServiceCollectionExtensions
     {
-        public static IServiceCollection AddElasticSearch(this IServiceCollection serviceCollection)
+        public static IServiceCollection AddElasticSearch(this IServiceCollection serviceCollection, string hostUrl, string index)
         {
             return serviceCollection
-                .AddTransient<ITransactionStore, TransactionStore>();
+                .AddTransient<ITransactionStore>(_ => new TransactionStore(hostUrl, index));
         }
 
     }

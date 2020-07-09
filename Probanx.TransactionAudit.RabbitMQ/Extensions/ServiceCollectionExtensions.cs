@@ -6,10 +6,10 @@ namespace Microsoft.Extensions.DependencyInjection
 {
     public static class ServiceCollectionExtensions
     {
-        public static IServiceCollection AddActiveMQ(this IServiceCollection serviceCollection)
+        public static IServiceCollection AddActiveMQ(this IServiceCollection serviceCollection, string hostName)
         {
             return serviceCollection
-                .AddSingleton<IConnectionFactory>((_) => new ConnectionFactory() { HostName = "host.docker.internal" })
+                .AddSingleton<IConnectionFactory>((_) => new ConnectionFactory() { HostName = hostName })
                 .AddSingleton<IMessageDispatcher, RabbitMqMessageDispatcher>();
         }
 

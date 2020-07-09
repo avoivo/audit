@@ -18,7 +18,9 @@
                 "pattern": "\\bNow listening on:\\s+(https?://\\S+)"
             },
             "env": {
-                "ASPNETCORE_ENVIRONMENT": "Development"
+                "ASPNETCORE_ENVIRONMENT": "Development",
+                "ELASTIC_HOST_URL": "http://localhost:9200",
+                "RABBIT_MQ_HOST_NAME": "localhost"
             },
             "sourceFileMap": {
                 "/Views": "${workspaceFolder}/Views"

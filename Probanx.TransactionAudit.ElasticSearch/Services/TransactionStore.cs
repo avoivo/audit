@@ -9,10 +9,11 @@ namespace Probanx.TransactionAudit.ElasticSearch
     public class TransactionStore : ITransactionStore
     {
         private readonly IElasticClient client;
-        public TransactionStore()
+
+        public TransactionStore(string hostUrl, string index)
         {
-            var settings = new ConnectionSettings(new Uri("http://host.docker.internal:9200"))
-                .DefaultIndex("people");
+            var settings = new ConnectionSettings(new Uri(hostUrl))
+                .DefaultIndex(index);
 
             client = new ElasticClient(settings);
         }

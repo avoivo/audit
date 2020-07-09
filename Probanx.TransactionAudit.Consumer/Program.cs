@@ -11,14 +11,23 @@ namespace Probanx.TransactionAudit.Consumer
 {
     class Program
     {
+
+        const string ELASTIC_HOST_URL = "ELASTIC_HOST_URL";
+        const string ELASTIC_INDEX = "ELASTIC_INDEX";
+        const string RABBIT_MQ_HOST_NAME = "RABBIT_MQ_HOST_NAME";
+
         static void Main(string[] args)
         {
             //should wait for rabbitmq to start
             Thread.Sleep(30000);
 
-            var store = new TransactionStore();
+            string elasticHostUrl = Environment.GetEnvironmentVariable(ELASTIC_HOST_URL) ?? "http://host.docker.internal:9200";
+            string elasticIndex = Environment.GetEnvironmentVariable(ELASTIC_INDEX) ?? "transactions";
+            string rabbitMqHostName = Environment.GetEnvironmentVariable(RABBIT_MQ_HOST_NAME) ?? "host.docker.internal";
 
-            var factory = new ConnectionFactory() { HostName = "host.docker.internal" };
+            var store = new TransactionStore(elasticHostUrl, elasticIndex);
+
+            var factory = new ConnectionFactory() { HostName = rabbitMqHostName };
             using (var connection = factory.CreateConnection())
             using (var channel = connection.CreateModel())
             {
