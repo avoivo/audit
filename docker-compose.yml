@@ -12,3 +12,8 @@ services:
     ports:
       - "5672:5672"
       - "15672:15672"
+  consumer:
+    build: ./Probanx.TransactionAudit.Consumer/
+    depends_on:
+      - rabbitMQ
+      - web
