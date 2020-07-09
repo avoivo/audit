@@ -1,0 +1,14 @@
+version: "3.8"
+services:
+  web:
+    build: .
+    ports:
+      - "8000:80"
+    depends_on:
+      - rabbitMQ
+  rabbitMQ:
+    image: rabbitmq:3-management
+    # hostname: rabbitmq_host
+    ports:
+      - "5672:5672"
+      - "15672:15672"
