@@ -1,0 +1,24 @@
+@startuml Flow
+actor User
+participant Web
+participant Queue
+participant Consumer
+participant Database
+
+group Storing
+    User -> Web: Save Data
+    Web -> Queue
+    Web -> User: Response Ok
+    Queue -> Consumer
+    Consumer -> Database
+    
+end
+
+group Retrieving
+    User -> Web: Request Data
+    Web -> Database
+    Database -> Web
+    Web -> User: Response Ok
+end
+
+@enduml
