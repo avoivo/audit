@@ -5,20 +5,20 @@ participant Queue
 participant Consumer
 participant Database
 
-group Storing
-    User -> Web: Save Data
-    Web -> Queue
-    Web -> User: Response Ok
-    Queue -> Consumer
-    Consumer -> Database
-    
-end
+== Storing ==
 
-group Retrieving
-    User -> Web: Request Data
-    Web -> Database
-    Database -> Web
-    Web -> User: Response Ok
-end
+User -> Web: Save Data
+Web -> Queue
+Web -> User: Response Ok
+... async ...
+Queue -> Consumer
+Consumer -> Database
+
+== Retrieving ==
+
+User -> Web: Request Data
+Web -> Database
+Database -> Web
+Web -> User: Response Ok
 
 @enduml
