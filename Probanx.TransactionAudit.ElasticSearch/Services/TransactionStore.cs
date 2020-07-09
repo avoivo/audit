@@ -28,6 +28,11 @@ namespace Probanx.TransactionAudit.ElasticSearch
         {
             var result = await client.SearchAsync<Message>(s => s.Aggregations(aggs => aggs.Sum("total_amount", sm => sm.Field(p => p.Value))));
 
+            if (result.IsValid == false)
+            {
+                return default;
+            }
+
             var sum = result.Aggregations.Sum("total_amount").Value;
 
             if (sum.HasValue)
