@@ -1,7 +1,9 @@
 version: "3.8"
 services:
   web:
-    build: .
+    build:
+      context: .
+      dockerfile: Dockerfile.web
     ports:
       - "8000:80"
     depends_on:
@@ -12,8 +14,17 @@ services:
     ports:
       - "5672:5672"
       - "15672:15672"
+  elasticSearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.8.0
+    ports:
+      - "9200:9200"
+      - "9300:9300"
+    environment:
+      - discovery.type=single-node
   consumer:
-    build: ./Probanx.TransactionAudit.Consumer/
+    build:
+      context: .
+      dockerfile: Dockerfile.consumer
     depends_on:
       - rabbitMQ
       - web

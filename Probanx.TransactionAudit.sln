@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Probanx.TransactionAudit.Ra
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Probanx.TransactionAudit.Consumer", "Probanx.TransactionAudit.Consumer\Probanx.TransactionAudit.Consumer.csproj", "{63AD00CC-E2AA-4F31-AA32-F0C002999DA1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Probanx.TransactionAudit.ElasticSearch", "Probanx.TransactionAudit.ElasticSearch\Probanx.TransactionAudit.ElasticSearch.csproj", "{05A1CE4B-DFD3-4E18-92A9-A3C1770834EB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -72,5 +74,17 @@ Global
 		{63AD00CC-E2AA-4F31-AA32-F0C002999DA1}.Release|x64.Build.0 = Release|Any CPU
 		{63AD00CC-E2AA-4F31-AA32-F0C002999DA1}.Release|x86.ActiveCfg = Release|Any CPU
 		{63AD00CC-E2AA-4F31-AA32-F0C002999DA1}.Release|x86.Build.0 = Release|Any CPU
+		{05A1CE4B-DFD3-4E18-92A9-A3C1770834EB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{05A1CE4B-DFD3-4E18-92A9-A3C1770834EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{05A1CE4B-DFD3-4E18-92A9-A3C1770834EB}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{05A1CE4B-DFD3-4E18-92A9-A3C1770834EB}.Debug|x64.Build.0 = Debug|Any CPU
+		{05A1CE4B-DFD3-4E18-92A9-A3C1770834EB}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{05A1CE4B-DFD3-4E18-92A9-A3C1770834EB}.Debug|x86.Build.0 = Debug|Any CPU
+		{05A1CE4B-DFD3-4E18-92A9-A3C1770834EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{05A1CE4B-DFD3-4E18-92A9-A3C1770834EB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{05A1CE4B-DFD3-4E18-92A9-A3C1770834EB}.Release|x64.ActiveCfg = Release|Any CPU
+		{05A1CE4B-DFD3-4E18-92A9-A3C1770834EB}.Release|x64.Build.0 = Release|Any CPU
+		{05A1CE4B-DFD3-4E18-92A9-A3C1770834EB}.Release|x86.ActiveCfg = Release|Any CPU
+		{05A1CE4B-DFD3-4E18-92A9-A3C1770834EB}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

@@ -1,5 +1,6 @@
 using System.Text;
 using System.Threading.Tasks;
+using System.Text.Json;
 using Probanx.TransactionAudit.Core.Models;
 using Probanx.TransactionAudit.Core.Services;
 using RabbitMQ.Client;
@@ -31,8 +32,9 @@ namespace Probanx.TransactionAudit.Web.Services
                                  autoDelete: false,
                                  arguments: null);
 
-                string message1 = "Hello World!";
-                var body = Encoding.UTF8.GetBytes(message1);
+
+
+                var body = Encoding.UTF8.GetBytes(JsonSerializer.Serialize(message));
 
                 channel.BasicPublish(exchange: "",
                                     routingKey: "hello",

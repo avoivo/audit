@@ -26,7 +26,12 @@ namespace Probanx.TransactionAudit.Web.Controllers
         [HttpPost]
         public async Task<ActionResult<Transaction>> Post(Transaction transactionAudit)
         {
-            await _messageDispatcher.Dispatch(new Message{});
+            await _messageDispatcher.Dispatch(new Message
+            {
+                Id = transactionAudit.Id,
+                Value = transactionAudit.Value
+            });
+
             return transactionAudit;
         }
     }

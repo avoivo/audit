@@ -9,4 +9,9 @@
     <PackageReference Include="RabbitMQ.Client" Version="6.1.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Probanx.TransactionAudit.Core\Probanx.TransactionAudit.Core.csproj" />
+    <ProjectReference Include="..\Probanx.TransactionAudit.ElasticSearch\Probanx.TransactionAudit.ElasticSearch.csproj" />
+  </ItemGroup>
+
 </Project>
