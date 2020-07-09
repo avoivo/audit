@@ -22,5 +22,20 @@ namespace Probanx.TransactionAudit.ElasticSearch
             client.IndexDocument(message);
             return Task.CompletedTask;
         }
+
+        public async Task<decimal> GetTotalAmount()
+        {
+            var result = await client.SearchAsync<Message>(s => s.Aggregations(aggs => aggs.Sum("total_amount", sm => sm.Field(p => p.Value))));
+
+            var sum = result.Aggregations.Sum("total_amount").Value;
+
+            if (sum.HasValue)
+            {
+                return (decimal)sum.Value;
+            }
+
+            return default;
+
+        }
     }
 }

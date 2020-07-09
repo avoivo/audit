@@ -6,5 +6,6 @@ namespace Probanx.TransactionAudit.Core.Services
     public interface ITransactionStore
     {
         Task Insert(Message message);
+        Task<decimal> GetTotalAmount();
     }
 }

@@ -16,11 +16,13 @@ namespace Probanx.TransactionAudit.Web.Controllers
     {
         private readonly ILogger _logger;
         private readonly IMessageDispatcher _messageDispatcher;
+        private readonly ITransactionStore _transactionStore;
 
-        public TransactionController(ILogger<TransactionController> logger, IMessageDispatcher messageDispatcher)
+        public TransactionController(ILogger<TransactionController> logger, IMessageDispatcher messageDispatcher, ITransactionStore transactionStore)
         {
             _logger = logger;
             _messageDispatcher = messageDispatcher;
+            _transactionStore = transactionStore;
         }
 
         [HttpPost]
@@ -33,6 +35,13 @@ namespace Probanx.TransactionAudit.Web.Controllers
             });
 
             return transactionAudit;
+        }
+
+        [HttpGet]
+        [Route("total")]
+        public async Task<ActionResult<decimal>> GetTotal()
+        {
+            return await _transactionStore.GetTotalAmount();
         }
     }
 }

@@ -26,8 +26,10 @@ namespace Probanx.TransactionAudit.Web
         public void ConfigureServices(IServiceCollection services)
         {
 
-            services.AddActiveMQ();
-            services.AddControllers();
+            services
+                .AddActiveMQ()
+                .AddElasticSearch()
+                .AddControllers();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

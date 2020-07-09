@@ -3,6 +3,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Probanx.TransactionAudit.Core\Probanx.TransactionAudit.Core.csproj" />
     <ProjectReference Include="..\Probanx.TransactionAudit.RabbitMQ\Probanx.TransactionAudit.RabbitMQ.csproj" />
+    <ProjectReference Include="..\Probanx.TransactionAudit.ElasticSearch\Probanx.TransactionAudit.ElasticSearch.csproj" />
   </ItemGroup>
 
   <PropertyGroup>
