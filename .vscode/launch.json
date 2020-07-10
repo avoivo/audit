@@ -5,10 +5,25 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "name": ".NET Core Launch (console)",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build-consumer",
+            "program": "${workspaceFolder}/Probanx.TransactionAudit.Consumer/bin/Debug/netcoreapp3.1/Probanx.TransactionAudit.Consumer.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/Probanx.TransactionAudit.Consumer",
+            "stopAtEntry": false,
+            "console": "internalConsole",
+            "env": {
+                "ELASTIC_HOST_URL": "http://localhost:9200",
+                "RABBIT_MQ_HOST_NAME": "localhost"
+            }
+        },
+        {
             "name": ".NET Core Launch (web)",
             "type": "coreclr",
             "request": "launch",
-            "preLaunchTask": "build",
+            "preLaunchTask": "build-web",
             "program": "${workspaceFolder}/Probanx.TransactionAudit.Web/bin/Debug/netcoreapp3.1/Probanx.TransactionAudit.Web.dll",
             "args": [],
             "cwd": "${workspaceFolder}/Probanx.TransactionAudit.Web",

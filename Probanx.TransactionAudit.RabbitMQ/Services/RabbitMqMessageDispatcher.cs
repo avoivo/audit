@@ -1,7 +1,6 @@
 using System.Text;
 using System.Threading.Tasks;
 using System.Text.Json;
-using Probanx.TransactionAudit.Core.Models;
 using Probanx.TransactionAudit.Core.Services;
 using RabbitMQ.Client;
 

@@ -35,7 +35,7 @@ namespace Probanx.TransactionAudit.Web
             string rabbitMqHostName = Environment.GetEnvironmentVariable(RABBIT_MQ_HOST_NAME) ?? "host.docker.internal";
 
             services
-                .AddActiveMQ(rabbitMqHostName)
+                .AddRabbitMQ(rabbitMqHostName)
                 .AddMessageDispatcher<Message>()
                 .AddElasticSearch(elasticHostUrl, elasticIndex)
                 .AddControllers();

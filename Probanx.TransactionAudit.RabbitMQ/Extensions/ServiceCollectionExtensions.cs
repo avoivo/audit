@@ -6,7 +6,7 @@ namespace Microsoft.Extensions.DependencyInjection
 {
     public static class ServiceCollectionExtensions
     {
-        public static IServiceCollection AddActiveMQ(this IServiceCollection serviceCollection, string hostName)
+        public static IServiceCollection AddRabbitMQ(this IServiceCollection serviceCollection, string hostName)
         {
             return serviceCollection
                 .AddSingleton<IConnectionFactory>((_) => new ConnectionFactory() { HostName = hostName });
@@ -15,6 +15,12 @@ namespace Microsoft.Extensions.DependencyInjection
         {
             return serviceCollection
                 .AddSingleton<IMessageDispatcher<T>, RabbitMqMessageDispatcher<T>>();
+        }
+
+        public static IServiceCollection AddMessageConsumer<T>(this IServiceCollection serviceCollection)
+        {
+            return serviceCollection
+                .AddSingleton<IMessageConsumer<T>, RabbitMqMessageConsumer<T>>();
         }
 
     }
