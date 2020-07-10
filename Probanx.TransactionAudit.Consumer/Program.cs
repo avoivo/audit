@@ -31,7 +31,7 @@ namespace Probanx.TransactionAudit.Consumer
             using (var connection = factory.CreateConnection())
             using (var channel = connection.CreateModel())
             {
-                channel.QueueDeclare(queue: "hello",
+                channel.QueueDeclare(queue: "Message",
                                     durable: false,
                                     exclusive: false,
                                     autoDelete: false,
@@ -59,7 +59,7 @@ namespace Probanx.TransactionAudit.Consumer
                     }
 
                 };
-                channel.BasicConsume(queue: "hello",
+                channel.BasicConsume(queue: "Message",
                                     autoAck: true,
                                     consumer: consumer);
 

@@ -9,6 +9,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Probanx.TransactionAudit.Core.Models;
 using Probanx.TransactionAudit.Core.Services;
 
 namespace Probanx.TransactionAudit.Web
@@ -35,6 +36,7 @@ namespace Probanx.TransactionAudit.Web
 
             services
                 .AddActiveMQ(rabbitMqHostName)
+                .AddMessageDispatcher<Message>()
                 .AddElasticSearch(elasticHostUrl, elasticIndex)
                 .AddControllers();
         }

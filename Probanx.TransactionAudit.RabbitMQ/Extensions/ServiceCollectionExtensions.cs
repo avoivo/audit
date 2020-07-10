@@ -9,8 +9,12 @@ namespace Microsoft.Extensions.DependencyInjection
         public static IServiceCollection AddActiveMQ(this IServiceCollection serviceCollection, string hostName)
         {
             return serviceCollection
-                .AddSingleton<IConnectionFactory>((_) => new ConnectionFactory() { HostName = hostName })
-                .AddSingleton<IMessageDispatcher, RabbitMqMessageDispatcher>();
+                .AddSingleton<IConnectionFactory>((_) => new ConnectionFactory() { HostName = hostName });
+        }
+        public static IServiceCollection AddMessageDispatcher<T>(this IServiceCollection serviceCollection)
+        {
+            return serviceCollection
+                .AddSingleton<IMessageDispatcher<T>, RabbitMqMessageDispatcher<T>>();
         }
 
     }

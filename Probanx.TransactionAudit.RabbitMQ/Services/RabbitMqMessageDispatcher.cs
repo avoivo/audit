@@ -7,13 +7,15 @@ using RabbitMQ.Client;
 
 namespace Probanx.TransactionAudit.Web.Services
 {
-    internal class RabbitMqMessageDispatcher : IMessageDispatcher
+    internal class RabbitMqMessageDispatcher<T> : IMessageDispatcher<T>
     {
         private readonly IConnection _connection;
+        private readonly string _queueName;
 
         public RabbitMqMessageDispatcher(IConnectionFactory connectionFactory)
         {
             _connection = connectionFactory.CreateConnection();
+            _queueName = typeof(T).Name;
         }
 
         ~RabbitMqMessageDispatcher()
@@ -22,11 +24,11 @@ namespace Probanx.TransactionAudit.Web.Services
         }
 
 
-        public Task Dispatch(Message message)
+        public Task Dispatch(T message)
         {
             using (var channel = _connection.CreateModel())
             {
-                channel.QueueDeclare(queue: "hello",
+                channel.QueueDeclare(queue: _queueName,
                                  durable: false,
                                  exclusive: false,
                                  autoDelete: false,
@@ -37,7 +39,7 @@ namespace Probanx.TransactionAudit.Web.Services
                 var body = Encoding.UTF8.GetBytes(JsonSerializer.Serialize(message));
 
                 channel.BasicPublish(exchange: "",
-                                    routingKey: "hello",
+                                    routingKey: _queueName,
                                     basicProperties: null,
                                     body: body);
             }

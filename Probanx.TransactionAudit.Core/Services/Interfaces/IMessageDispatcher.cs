@@ -3,9 +3,9 @@ using Probanx.TransactionAudit.Core.Models;
 
 namespace Probanx.TransactionAudit.Core.Services
 {
-    public interface IMessageDispatcher
+    public interface IMessageDispatcher<T>
     {
-        Task Dispatch(Message message);
+        Task Dispatch(T message);
 
     }
 }

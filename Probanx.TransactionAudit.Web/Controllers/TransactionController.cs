@@ -15,10 +15,10 @@ namespace Probanx.TransactionAudit.Web.Controllers
     public class TransactionController : ControllerBase
     {
         private readonly ILogger _logger;
-        private readonly IMessageDispatcher _messageDispatcher;
+        private readonly IMessageDispatcher<Message> _messageDispatcher;
         private readonly ITransactionStore _transactionStore;
 
-        public TransactionController(ILogger<TransactionController> logger, IMessageDispatcher messageDispatcher, ITransactionStore transactionStore)
+        public TransactionController(ILogger<TransactionController> logger, IMessageDispatcher<Message> messageDispatcher, ITransactionStore transactionStore)
         {
             _logger = logger;
             _messageDispatcher = messageDispatcher;
