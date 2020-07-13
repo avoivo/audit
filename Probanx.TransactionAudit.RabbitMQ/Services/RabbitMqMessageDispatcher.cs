@@ -3,16 +3,19 @@ using System.Threading.Tasks;
 using System.Text.Json;
 using Probanx.TransactionAudit.Core.Services;
 using RabbitMQ.Client;
+using Microsoft.Extensions.Logging;
 
 namespace Probanx.TransactionAudit.Web.Services
 {
     internal class RabbitMqMessageDispatcher<T> : IMessageDispatcher<T>
     {
+        private readonly ILogger _logger;
         private readonly IConnection _connection;
         private readonly string _queueName;
 
-        public RabbitMqMessageDispatcher(IConnectionFactory connectionFactory)
+        public RabbitMqMessageDispatcher(ILogger<RabbitMqMessageDispatcher<T>> logger, IConnectionFactory connectionFactory)
         {
+            _logger = logger;
             _connection = connectionFactory.CreateConnection();
             _queueName = typeof(T).Name;
         }
@@ -25,6 +28,9 @@ namespace Probanx.TransactionAudit.Web.Services
 
         public Task Dispatch(T message)
         {
+            _logger.LogTrace("Dispatch() enter");
+            _logger.LogDebug("Dispatch({MESSAGE})", message);
+
             using (var channel = _connection.CreateModel())
             {
                 channel.QueueDeclare(queue: _queueName,
@@ -32,8 +38,6 @@ namespace Probanx.TransactionAudit.Web.Services
                                  exclusive: false,
                                  autoDelete: false,
                                  arguments: null);
-
-
 
                 var body = Encoding.UTF8.GetBytes(JsonSerializer.Serialize(message));
 
@@ -43,6 +47,7 @@ namespace Probanx.TransactionAudit.Web.Services
                                     body: body);
             }
 
+            _logger.LogTrace("Dispatch() exit");
             return Task.CompletedTask;
         }
     }

@@ -31,6 +31,9 @@ namespace Probanx.TransactionAudit.Web.Services
 
         public Task Consume(Action<T> consumeAction)
         {
+            _logger.LogTrace("Consume() enter");
+            _logger.LogDebug("Consume({ACTION})", consumeAction);
+
             using (var channel = _connection.CreateModel())
             {
                 channel.QueueDeclare(queue: _queueName,
@@ -66,6 +69,7 @@ namespace Probanx.TransactionAudit.Web.Services
 
             }
 
+            _logger.LogTrace("Consume() exit");
             return Task.CompletedTask;
         }
     }

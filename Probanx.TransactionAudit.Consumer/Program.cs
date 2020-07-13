@@ -25,7 +25,11 @@ namespace Probanx.TransactionAudit.Consumer
                 .AddRabbitMQ(rabbitMqHostName)
                 .AddMessageConsumer<Message>()
                 .AddElasticSearch(elasticHostUrl, elasticIndex)
-                .AddLogging(loggingBuilder => loggingBuilder.AddConsole())
+                .AddLogging(loggingBuilder =>
+                    loggingBuilder
+                        .AddConsole()
+                        .SetMinimumLevel(LogLevel.Trace)
+                    )
                 .BuildServiceProvider();
 
 
