@@ -18,7 +18,7 @@ docker-compose down
 ```
 
 ## Debugging
-### Probanx.TransactionAudit.Web
+### Audit.Web
 Start the needed containers.
 ```
     docker-compose up rabbitMQ elasticSearch consumer
@@ -32,7 +32,7 @@ Set the environment vars.
 
 And debug as usual.
 
-### Probanx.TransactionAudit.Consumer
+### Audit.Consumer
 Start the needed containers.
 ```
     docker-compose up rabbitMQ elasticSearch web

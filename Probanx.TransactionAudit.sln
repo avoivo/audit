@@ -3,15 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26124.0
 MinimumVisualStudioVersion = 15.0.26124.0
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Probanx.TransactionAudit.Web", "Probanx.TransactionAudit.Web\Probanx.TransactionAudit.Web.csproj", "{DCC34885-0468-4B82-832B-0CC086ACA6B3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Audit.Web", "Audit.Web\Audit.Web.csproj", "{DCC34885-0468-4B82-832B-0CC086ACA6B3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Probanx.TransactionAudit.Core", "Probanx.TransactionAudit.Core\Probanx.TransactionAudit.Core.csproj", "{2485C909-BA94-4D70-8C4D-E5725BBAFF6D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Audit.Core", "Audit.Core\Audit.Core.csproj", "{2485C909-BA94-4D70-8C4D-E5725BBAFF6D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Probanx.TransactionAudit.RabbitMQ", "Probanx.TransactionAudit.RabbitMQ\Probanx.TransactionAudit.RabbitMQ.csproj", "{92C2087E-3E17-4B35-B1D6-1A0CA2B54D6E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Audit.RabbitMQ", "Audit.RabbitMQ\Audit.RabbitMQ.csproj", "{92C2087E-3E17-4B35-B1D6-1A0CA2B54D6E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Probanx.TransactionAudit.Consumer", "Probanx.TransactionAudit.Consumer\Probanx.TransactionAudit.Consumer.csproj", "{63AD00CC-E2AA-4F31-AA32-F0C002999DA1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Audit.Consumer", "Audit.Consumer\Audit.Consumer.csproj", "{63AD00CC-E2AA-4F31-AA32-F0C002999DA1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Probanx.TransactionAudit.ElasticSearch", "Probanx.TransactionAudit.ElasticSearch\Probanx.TransactionAudit.ElasticSearch.csproj", "{05A1CE4B-DFD3-4E18-92A9-A3C1770834EB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Audit.ElasticSearch", "Audit.ElasticSearch\Audit.ElasticSearch.csproj", "{05A1CE4B-DFD3-4E18-92A9-A3C1770834EB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

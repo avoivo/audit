@@ -9,9 +9,9 @@
             "type": "coreclr",
             "request": "launch",
             "preLaunchTask": "build-consumer",
-            "program": "${workspaceFolder}/Probanx.TransactionAudit.Consumer/bin/Debug/netcoreapp3.1/Probanx.TransactionAudit.Consumer.dll",
+            "program": "${workspaceFolder}/Audit.Consumer/bin/Debug/netcoreapp3.1/Audit.Consumer.dll",
             "args": [],
-            "cwd": "${workspaceFolder}/Probanx.TransactionAudit.Consumer",
+            "cwd": "${workspaceFolder}/Audit.Consumer",
             "stopAtEntry": false,
             "console": "internalConsole",
             "env": {
@@ -24,9 +24,9 @@
             "type": "coreclr",
             "request": "launch",
             "preLaunchTask": "build-web",
-            "program": "${workspaceFolder}/Probanx.TransactionAudit.Web/bin/Debug/netcoreapp3.1/Probanx.TransactionAudit.Web.dll",
+            "program": "${workspaceFolder}/Audit.Web/bin/Debug/netcoreapp3.1/Audit.Web.dll",
             "args": [],
-            "cwd": "${workspaceFolder}/Probanx.TransactionAudit.Web",
+            "cwd": "${workspaceFolder}/Audit.Web",
             "stopAtEntry": false,
             "serverReadyAction": {
                 "action": "openExternally",

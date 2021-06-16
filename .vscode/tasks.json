@@ -7,7 +7,7 @@
             "type": "shell",
             "args": [
                 "build",
-                "${workspaceFolder}/Probanx.TransactionAudit.Web/Probanx.TransactionAudit.Web.csproj",
+                "${workspaceFolder}/Audit.Web/Audit.Web.csproj",
                 "/property:GenerateFullPaths=true",
                 "/consoleloggerparameters:NoSummary"
             ],
@@ -23,7 +23,7 @@
             "type": "shell",
             "args": [
                 "build",
-                "${workspaceFolder}/Probanx.TransactionAudit.Consumer/Probanx.TransactionAudit.Consumer.csproj",
+                "${workspaceFolder}/Audit.Consumer/Audit.Consumer.csproj",
                 "/property:GenerateFullPaths=true",
                 "/consoleloggerparameters:NoSummary"
             ],
@@ -35,7 +35,7 @@
             "type": "process",
             "args": [
                 "publish",
-                "${workspaceFolder}/Probanx.TransactionAudit.Web/Probanx.TransactionAudit.Web.csproj",
+                "${workspaceFolder}/Audit.Web/Audit.Web.csproj",
                 "/property:GenerateFullPaths=true",
                 "/consoleloggerparameters:NoSummary"
             ],
@@ -48,7 +48,7 @@
             "args": [
                 "watch",
                 "run",
-                "${workspaceFolder}/Probanx.TransactionAudit.Web/Probanx.TransactionAudit.Web.csproj",
+                "${workspaceFolder}/Audit.Web/Audit.Web.csproj",
                 "/property:GenerateFullPaths=true",
                 "/consoleloggerparameters:NoSummary"
             ],
